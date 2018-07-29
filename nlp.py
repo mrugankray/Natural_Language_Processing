@@ -2,6 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import pickle
 
 #importing dataset
 dataset = pd.read_csv('Restaurant_Reviews.tsv',quoting = 3, delimiter = '\t')
@@ -45,3 +46,13 @@ cm = confusion_matrix(y_test, y_pred)
 
 #accuracy
 accuracy = ((55+91)/200)*100
+
+#pickling
+outfile = open("y_pred_new.pickle","wb")
+pickle.dump(y_pred,outfile)
+outfile.close()
+
+#unpicling
+pickle_in = open("y_pred_new.pickle","rb")
+saved_y_Pred = pickle.load(pickle_in)
+print(saved_y_Pred)
