@@ -52,7 +52,7 @@ outfile = open("y_pred_new.pickle","wb")
 pickle.dump(y_pred,outfile)
 outfile.close()
 
-#unpicling
+#unpickling
 pickle_in = open("y_pred_new.pickle","rb")
 saved_y_Pred = pickle.load(pickle_in)
 print(saved_y_Pred)
